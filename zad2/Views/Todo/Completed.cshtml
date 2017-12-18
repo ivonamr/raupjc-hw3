@@ -1,0 +1,55 @@
+﻿
+@using zad1
+
+@using zad2.Models.Todo;
+
+@model CompletedViewModel
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+@{
+
+    ViewData["Title"] = "Completed";
+
+    Layout = "_Layout";
+
+}
+
+
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+
+    <title>Completed items</title>
+
+</head>
+
+<body>
+
+    <h2 style="margin-bottom:50px">Completed Todos</h2>
+
+    @foreach (var item in Model.TodoViewModels)
+
+    {
+
+        <div style="margin-bottom:30px">
+
+            @Html.Partial("TodoPartial", item)
+
+            <a asp-action="RemoveFromCompleted" asp-route-Id="@item.Id" style="color:blue;">Remove from completed</a>
+
+        </div>
+
+    }
+
+</body>
+
+</html>
+

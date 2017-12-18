@@ -1,0 +1,29 @@
+﻿
+@using zad2.Models.Todo
+
+@model TodoViewModel
+
+
+
+
+
+<div>
+
+    <h4 style="display:inline-block; margin-right:5px;">@Model.Text</h4>
+
+    <p style="display:inline-block; color:red">@Model.DaysUntilDue</p>
+
+    <p>@Model.getDate()</p>
+    <div>
+        @foreach (var label in Model.Labels)
+        {
+
+            <p style="display:inline-block; margin-right:5px; color:green">@label.Value</p>
+
+        }
+    </div>
+
+
+
+</div>
+

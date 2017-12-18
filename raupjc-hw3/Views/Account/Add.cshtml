@@ -1,0 +1,33 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+
+@using raupjc_hw3.Data
+@using zad1
+@model raupjc_hw3.Models.Todo.AddTodoViewModel
+@{
+
+    ViewData["Title"] = "Add";
+
+   
+
+}
+
+
+<!DOCTYPE html>
+
+       
+<html>
+<head>
+    <title>Add </title>
+</head>
+<body>
+    <div>
+        <form asp-action="Add" method="post">
+            Text: <input asp-for="Text" /> <span asp-validation-for="Text"></span> <br />
+            DataDue: <input asp-for="DataDue" /> <span asp-validation-for="DataDue"></span> <br />
+            Labels: <input asp-for="Labels" /> <span asp-validation-for="Labels"></span> <br />
+            <input type="submit" />
+        </form>
+    </div>
+</body>
+</html>

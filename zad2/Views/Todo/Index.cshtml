@@ -1,0 +1,38 @@
+﻿
+@using zad1
+
+@using zad2.Models.Todo;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model zad2.Models.Todo.IndexViewModel
+@{
+    ViewBag.Title = "Todos";
+    Layout = "_Layout";
+}
+<h2>Active Todo</h2>
+<div>
+    <a asp-action="Add">Add new todo <span class="glyphicon glyphicon-plus-sign"></span></a> &nbsp;
+    <a asp-action="Completed">See completed todos <span class="glyphicon glyphicon-tasks"></span></a>
+</div>
+<div class="list-group">
+  
+    @foreach (TodoViewModel todo in Model.TodoViewModels)
+    {
+        <div>
+           
+            @Html.Partial("TodoPartial", todo)
+
+           
+            <a asp-action="MarkAsCompleted" asp-route-Id="@todo.Id" style="color:blue; margin-bottom:30px;">Mark as completed</a>
+            
+                <span class="glyphicon glyphicon-ok-sign"></span>
+           
+
+        </div>
+       
+    }
+  
+
+
+
+
+</div>
